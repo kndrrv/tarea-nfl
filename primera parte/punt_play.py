@@ -5,21 +5,31 @@ class PuntPlay: # se crea la clase para representar la jugada punt
         self.__yards = int(yards) # yardas ganadas en la jugada
         self.__quarter = int(quarter) # cuarto en el que ocurrió la jugada
 
-    def __str__(self, other): # esto devuelve na representación en string de la jugada
+    def __str__(self): # esto devuelve na representación en string de la jugada
         return f"{self.__game_id}, {self.__teams}, {self.__yards}, {self.__quarter}"
 
 # operadores de comparación basados en las yardas ganadas
     def __eq__(self, other):
-        return self._yards == other._yards
+        if not isinstance(other, PuntPlay):
+            return NotImplemented
+        return self.__yards == other.__yards
     
     def __lt__(self, other):
-        return self._yards < other._yards
+        if not isinstance(other, PuntPlay):
+            return NotImplemented
+        return self.__yards < other.__yards
     
     def __gt__(self, other):
-        return self._yards > other._yards
+        if not isinstance(other, PuntPlay):
+            return NotImplemented
+        return self.__yards > other.__yards
     
     def __le__(self, other):
-        return self._yards <= other._yards
+        if not isinstance(other, PuntPlay):
+            return NotImplemented
+        return self.__yards <= other.__yards
     
     def __ge__(self, other):
-        return self._yards >= other._yards
+        if not isinstance(other, PuntPlay):
+            return NotImplemented
+        return self.__yards >= other.__yards
