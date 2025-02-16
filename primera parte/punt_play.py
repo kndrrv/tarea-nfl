@@ -1,7 +1,3 @@
-# se importa csv y os para poder leer los archivos
-import csv
-import os
-
 class PuntPlay: # se crea la clase para representar la jugada punt
     def __init__(self, game_id, teams, yards, quarter):
         self.__game_id = game_id # el ID del juego
@@ -12,14 +8,18 @@ class PuntPlay: # se crea la clase para representar la jugada punt
     def __str__(self, other): # esto devuelve na representación en string de la jugada
         return f"{self.__game_id}, {self.__teams}, {self.__yards}, {self.__quarter}"
 
+# operadores de comparación basados en las yardas ganadas
     def __eq__(self, other):
-        return self.__yards == other.__yards
-
+        return self._yards == other._yards
+    
     def __lt__(self, other):
-        return self.__yards < other.__yards
-
+        return self._yards < other._yards
+    
     def __gt__(self, other):
-        return self.__yards > other.__yards
-
-    def get_yards(self):
-        return self.__yards
+        return self._yards > other._yards
+    
+    def __le__(self, other):
+        return self._yards <= other._yards
+    
+    def __ge__(self, other):
+        return self._yards >= other._yards
