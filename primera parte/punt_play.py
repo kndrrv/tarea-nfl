@@ -5,7 +5,7 @@ class PuntPlay: # se crea la clase para representar la jugada punt
         self.__yards = int(yards) # yardas ganadas en la jugada
         self.__quarter = int(quarter) # cuarto en el que ocurrió la jugada
 
-    def __str__(self): # esto devuelve na representación en string de la jugada
+    def __str__(self): # esto devuelve la representación en string de la jugada
         return f"{self.__game_id}, {self.__teams}, {self.__yards}, {self.__quarter}"
 
 # operadores de comparación basados en las yardas ganadas
