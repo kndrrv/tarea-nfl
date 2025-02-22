@@ -1,0 +1,15 @@
+Bubble Sort:
+Tiempo de ejecución: 0.0000 segundos
+Comparaciones: 3
+Intercambios: 0
+
+Insertion Sort:
+Tiempo de ejecución: 0.0000 segundos
+Comparaciones: 2
+Intercambios: 0
+
+Merge Sort Recursivo:
+Tiempo de ejecución: 0.0000 segundos
+Comparaciones: 2
+Intercambios: 2
+
