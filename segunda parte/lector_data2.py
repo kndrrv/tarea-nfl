@@ -28,13 +28,34 @@ class LectorData2: # se crea la clase LectorData2
                     print(f"Total de punts encontrados: {len(punts)}") # imprime cuantos punts se encontraron
                 return punts
                  
-    def guardar_resultados(self, punts, filename, tiempo_ejecucion): # guarda los archivos 
+    def guardar_resultados(self, punts, filename, tiempo_ejecucion): # se guardan los archivos
+        
         try:
+            if not filename.endswith('.csv'):
+                filename = filename.replace('.txt', '.csv')
+            
             output_path = os.path.join(self.__data_dir, filename)
-            with open(output_path, 'w', encoding='utf-8') as file:
-                file.write(f"Tiempo de ejecución: {tiempo_ejecucion} segundos\n\n")
+            
+            with open(output_path, 'w', encoding='utf-8', newline='') as file:
+                writer = csv.writer(file)
+                
+                writer.writerow(['Tiempo de ejecución (segundos)', f"{tiempo_ejecucion:.4f}"])
+                writer.writerow([])  
+                
+                headers = ['Fecha', 'Tiempo', 'Away Team', 'Home Team', 'Cuarto', 'Distancia (yds)', 'Game ID']
+                writer.writerow(headers)
+
                 for punt in punts:
-                    file.write(f"{punt}\n")
+                    writer.writerow([
+                        punt.get_date(),
+                        punt._PuntPlay2__time, 
+                        punt.get_AwayTeam(),
+                        punt.get_HomeTeam(),
+                        punt.get_qtr(),
+                        punt.get_distance(),
+                        punt.get_GamedID()
+                    ])
+                    
             print(f"Resultados guardados en: {output_path}")
         except Exception as e:
             print(f"Error guardando resultados en {filename}: {str(e)}")

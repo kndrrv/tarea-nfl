@@ -47,13 +47,13 @@ class SortingAlgorithms: # se crea la clase algoritmos
         for i in range(1, len(arr)): # bucle desde el segundo elemento hasta el fianal
             key = arr[i]
             j = i - 1
-            while j >= 0 and self.__comparator.compare(arr[j], key) > 0:
+            while j >= 0 and self.__comparator.compare(arr[j], key) > 0: # mueve los elementos mayores a key
                 arr[j + 1] = arr[j]
                 j -= 1
-            arr[j + 1] = key
-        return arr
+            arr[j + 1] = key # inserta key en la posicion correcta
+        return arr # retorna el array ordenado
 
-    def merge_sort_recursive(self, arr):
+    def merge_sort_recursive(self, arr): # algoritmo mergesort recursivo
         if len(arr) <= 1:
             return arr
 
@@ -61,10 +61,10 @@ class SortingAlgorithms: # se crea la clase algoritmos
         left = arr[:mid]
         right = arr[mid:]
 
-        left = self.merge_sort_recursive(left)
-        right = self.merge_sort_recursive(right)
+        left = self.merge_sort_recursive(left) # ordena recursivamente el array izquierdo
+        right = self.merge_sort_recursive(right) # ordena recursivamente el array derecho
 
-        return self.merge(left, right)
+        return self.merge(left, right) # combina los array ordenados
 
     def merge(self, left, right):
         result = []
@@ -82,7 +82,7 @@ class SortingAlgorithms: # se crea la clase algoritmos
         result.extend(right[j:])
         return result
 
-    def merge_sort_iterative(self, arr):
+    def merge_sort_iterative(self, arr): # mergesort iterativo
         if len(arr) <= 1:
             return arr
 
@@ -125,7 +125,7 @@ class SortingAlgorithms: # se crea la clase algoritmos
             
         return arr
 
-    def quick_sort_recursive(self, arr):
+    def quick_sort_recursive(self, arr): # quicksort recursivo 
         if len(arr) <= 1:
             return arr
         else:
@@ -138,7 +138,7 @@ class SortingAlgorithms: # se crea la clase algoritmos
             self.quick_sort_recursive_helper(arr, pi + 1, high)
         return arr
 
-    def quick_sort_iterative(self, arr):
+    def quick_sort_iterative(self, arr): # quicksort iterativo
         if len(arr) <= 1:
             return arr
             
